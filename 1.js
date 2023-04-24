@@ -1,5 +1,5 @@
 const intToRoman = (num) => {
-  const map = {
+  const lookUp = {
     M: 1000,
     CM: 900,
     D: 500,
@@ -16,14 +16,14 @@ const intToRoman = (num) => {
   };
   let result = "";
 
-  for (key in map) {
-    const repeatCounter = Math.floor(num / map[key]);
+  for (key in lookUp) {
+    const repeatCounter = Math.floor(num / lookUp[key]);
 
     if (repeatCounter !== 0) {
       result += key.repeat(repeatCounter);
     }
 
-    num %= map[key];
+    num %= lookUp[key];
 
     if (num === 0) return result;
   }
