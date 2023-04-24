@@ -14,4 +14,19 @@ const intToRoman = (num) => {
     IV: 4,
     I: 1,
   };
+  let result = "";
+
+  for (key in map) {
+    const repeatCounter = Math.floor(num / map[key]);
+
+    if (repeatCounter !== 0) {
+      result += key.repeat(repeatCounter);
+    }
+
+    num %= map[key];
+
+    if (num === 0) return result;
+  }
+
+  return result;
 };
